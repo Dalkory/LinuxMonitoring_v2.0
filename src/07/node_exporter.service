@@ -1,0 +1,13 @@
+[Unit]
+Description=Node Exporter  # Описание службы Node Exporter
+Wants=network-online.target  # Указываем зависимость от network-online.target
+After=network-online.target  # Указываем, что служба должна быть запущена после network-online.target
+
+[Service]
+User=node_exporter  # Запускать службу от имени пользователя node_exporter
+Group=node_exporter  # Запускать службу в группе node_exporter
+Type=simple  # Тип службы - простой процесс
+ExecStart=/usr/local/bin/node_exporter  # Команда для запуска Node Exporter
+
+[Install]
+WantedBy=multi-user.target  # Указываем, что служба должна быть запущена при загрузке в многопользовательском режиме
